@@ -1,0 +1,15 @@
+{
+  "name": "nodejs-microservice-event-driven",
+  "version": "1.0.0",
+  "description": "## Getting Started",
+  "main": "index.js",
+  "scripts": {
+    "start": "concurrently -n \"service-A,service-B\" \"cd service-a && npm run dev\" \"cd service-b && npm run dev\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

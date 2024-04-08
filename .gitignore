@@ -1,0 +1,44 @@
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+# Code coverage reports
+coverage
+
+# IntelliJ project files
+.idea
+*.iml
+
+# Logs
+*.log
+npm-debug.log*
+
+# dependencies
+node_modules
+
+# testing
+coverage
+
+# misc
+.DS_Store
+.env
+
+# Reports
+test-results/
+eslint-report.xml
+
+# Development config
+config/app.config.local.js
+
+# NPM Project config
+.npmrc
+
+# Yarn Project config
+.yarnrc
+yarn-debug.log*
+yarn-error.log*
+
+# dist
+dist
+.cache
+
+# DB
+db
