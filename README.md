@@ -27,3 +27,16 @@ concurrently -n "service-A,service-B" "cd service-a && npm run dev" "cd service-
 Open service A with [http://localhost:3100](http://localhost:3100).
 
 Then service B  [http://localhost:3200](http://localhost:3200). Observe response in service B.
+
+## Diagram
+
+```mermaid
+flowchart LR
+    P((P)) --> Q[[hello]]
+    Q -- prefetch=1 --> C1((C1))
+
+    class P mermaid-producer
+    class Q mermaid-queue
+    class C1 mermaid-consumer
+    class C2 mermaid-consumer
+```

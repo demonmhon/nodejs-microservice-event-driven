@@ -9,7 +9,7 @@ const port = process.env.EXPRESS_PORT;
 const startSever = async (): Promise<Application> => {
   const conn = await amqplib.connect('amqp://localhost');
   const channel = await conn.createChannel();
-  await channel.assertQueue(queue);
+  await channel.assertQueue(queue, { durable: true });
 
   app.get('/', (req, res) => {
     const testMessage = {
@@ -19,8 +19,10 @@ const startSever = async (): Promise<Application> => {
       date: new Date().toISOString(),
       isStatusX: true,
     };
-    console.log('Service A: message send');
-    channel.sendToQueue(queue, Buffer.from(JSON.stringify(testMessage)));
+    channel.sendToQueue(queue, Buffer.from(JSON.stringify(testMessage)), {
+      persistent: true,
+    });
+    console.log('Service A: message sent');
     res.json({
       message: 'This will sent message via amqp',
     });
