@@ -32,11 +32,13 @@ Then service B  [http://localhost:3200](http://localhost:3200). Observe response
 
 ```mermaid
 flowchart LR
-    P((P)) --> Q[[hello]]
-    Q -- prefetch=1 --> C1((C1))
+    P((P: Service A))
+    Q[[Queue]]
+    C1((C₁: Service B))
+
+    P --> Q --> C1
 
     class P mermaid-producer
     class Q mermaid-queue
     class C1 mermaid-consumer
-    class C2 mermaid-consumer
 ```
